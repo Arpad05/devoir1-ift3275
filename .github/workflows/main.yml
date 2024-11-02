@@ -18,8 +18,8 @@ jobs:
 
     - name: Check for modified files
       run: |
-        if git diff --name-only HEAD^ | grep -E '^crypt.py$|^test.py$'; then
-          echo "Les fichiers crypt.py et test.py ne doivent pas être modifiés."
+        if git diff --name-only HEAD^ HEAD | grep -E 'test.py|test2.py|test3.py|crypt.py'; then
+          echo "Error: Modifications to test.py, test2.py, test3.py, or crypt.py are not allowed."
           exit 1
         fi
 
