@@ -30,15 +30,13 @@ def print_diff(original, decrypted):
 class TestDecryption(unittest.TestCase):
 
     def test_decryption_accuracy(self):
-        # Charger le premier corpus et enlever les 10 000 premiers caractères
         url1 = "https://www.gutenberg.org/ebooks/13846.txt.utf-8"
         corpus1 = load_text_from_web(url1)
-        corpus1 = corpus1[1905:]  # Enlever les 10 000 premiers caractères
+        corpus1 = corpus1[1905:]
 
-        # Charger le deuxième corpus et enlever les 10 000 premiers caractères
         url2 = "https://www.gutenberg.org/ebooks/4650.txt.utf-8"
         corpus2 = load_text_from_web(url2)
-        corpus2 = corpus2[3749:]  # Enlever les 10 000 premiers caractères
+        corpus2 = corpus2[3749:]
 
         # Combiner les deux corpus
         corpus = corpus1 + corpus2
@@ -74,14 +72,14 @@ class TestDecryption(unittest.TestCase):
         similarity = similarity_ratio(original_message, decrypted_message)
         print(f"Similarité : {similarity:.2%}")
 
-        # Imprimer les différences si la similarité est inférieure à 95 %
+        # Imprimer les différences si la similarité est inférieure à 98.5 %
         if similarity < 0.985:
             print("Différences entre les messages :")
             print_diff(original_message, decrypted_message)
 
-        # Vérifier que la similarité entre le message original et le message déchiffré est d'au moins 95 %
+        # Vérifier que la similarité entre le message original et le message déchiffré est d'au moins 98.5 %
         self.assertGreaterEqual(similarity, 0.985,
-                                f"La similarité est seulement de {similarity:.2%}, ce qui est inférieur à 95 %.")
+                                f"La similarité est seulement de {similarity:.2%}, ce qui est inférieur à 98.5 %.")
 
 
 if __name__ == '__main__':
