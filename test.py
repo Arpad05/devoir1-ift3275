@@ -52,7 +52,7 @@ class TestDecryption(unittest.TestCase):
         dictionnaire = gen_key(symboles)
 
         a = random.randint(3400, 7200)
-        b = random.randint(12000, 15000)
+        b = random.randint(96000, 125000)
         l = a+b
         c = random.randint(0, len(corpus)-l)
 
