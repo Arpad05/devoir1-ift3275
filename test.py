@@ -74,14 +74,14 @@ class TestDecryption(unittest.TestCase):
         similarity = similarity_ratio(original_message, decrypted_message)
         print(f"Similarité : {similarity:.2%}")
 
-        # Imprimer les différences si la similarité est inférieure à 95 %
-        if similarity < 0.985:
+        # Imprimer les différences si la similarité est inférieure à 99.5 %
+        if similarity < 0.995:
             print("Différences entre les messages :")
             print_diff(original_message, decrypted_message)
 
-        # Vérifier que la similarité entre le message original et le message déchiffré est d'au moins 95 %
-        self.assertGreaterEqual(similarity, 0.985,
-                                f"La similarité est seulement de {similarity:.2%}, ce qui est inférieur à 95 %.")
+        # Vérifier que la similarité entre le message original et le message déchiffré est d'au moins 99.5 %
+        self.assertGreaterEqual(similarity, 0.995,
+                                f"La similarité est seulement de {similarity:.2%}, ce qui est inférieur à 99.5 %.")
 
 
 if __name__ == '__main__':
